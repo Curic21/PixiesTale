@@ -52,7 +52,7 @@ public class ControlJsp extends HttpServlet {
         }
         if (request.getSession().getAttribute("usuarioBean") == null) {
             ob = "usuario";
-            if (!op.equals("inicio") && !op.equals("login02")) {
+            if (!op.equals("inicio") && !op.equals("login02") && !op.equals("form")) {
                 op = "login01";
             }
         }
