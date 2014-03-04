@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import net.daw.bean.AlumnoBean;
 import net.daw.bean.UsuarioBean;
 import net.daw.dao.UsuarioDao;
 import net.daw.helper.Conexion;
@@ -24,8 +25,9 @@ public class ControlJsp extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP
+     * <code>GET</code> and
+     * <code>POST</code> methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -91,6 +93,40 @@ public class ControlJsp extends HttpServlet {
                 if (op.equalsIgnoreCase("logout")) {
                     request.getSession().invalidate();
                 }
+                if (op.equalsIgnoreCase("form2")) {
+
+                    UsuarioBean oUsuario = new UsuarioBean();
+                    AlumnoBean oAlumno = new AlumnoBean();
+
+                    String name = request.getParameter("nombre");
+                    String surname = request.getParameter("apellido");
+                    String email = request.getParameter("email");
+                    String login = request.getParameter("login");
+                    String pass = request.getParameter("password");
+                    String passRepite = request.getParameter("passwordRepite");
+                    
+                    if (!login.equals("") && !pass.equals("") && !name.equals("") 
+                            && !surname.equals("") && !email.equals("") && !passRepite.equals("") ) {
+                        oUsuario.setLogin(login);
+                        oUsuario.setPassword(pass); 
+                        oUsuario.setPassword(passRepite);
+                        oAlumno.setNombre(name);
+                        oAlumno.setApe1(surname);
+                        oAlumno.setEmail(email);
+                        
+                        
+                        oUsuario.setTipoUsuario(net.daw.helper.Enum.TipoUsuario.Alumno);
+                        UsuarioDao oUsuarioDao = new UsuarioDao(Conexion.getConection());
+                        oUsuario = oUsuarioDao.getFromLogin(oUsuario);
+                        if (oUsuario.getId() != 0) {
+                            //rellena el tipo de usuario
+                            oUsuario = oUsuarioDao.type(oUsuario);
+                            request.getSession().setAttribute("usuarioBean", oUsuario);
+                        }
+
+
+                }
+            }
             }
             //servimos el jsp dentro de index.jsp
             request.setAttribute("contenido", "jsp/" + ob + "/" + op + ".jsp");
@@ -101,7 +137,8 @@ public class ControlJsp extends HttpServlet {
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP <code>GET</code> method.
+     * Handles the HTTP
+     * <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -120,7 +157,8 @@ public class ControlJsp extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
+     * Handles the HTTP
+     * <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response

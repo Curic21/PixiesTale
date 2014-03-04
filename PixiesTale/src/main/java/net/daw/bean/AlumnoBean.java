@@ -5,25 +5,13 @@
  */
 package net.daw.bean;
 
-/**
- *
- * @author Sergio
- */
+
 public class AlumnoBean {
 
     private Integer id = 0;
     private Integer id_usuario = 0;
-    private String dni = "";
-    private String numexpediente = "";
     private String nombre = "";
     private String ape1 = "";
-    private String ape2 = "";
-    private String sexo = "";
-    private String domicilio = "";
-    private String codpostal = "";
-    private String poblacion = "";
-    private String provincia = "";
-    private String telefono = "";
     private String email = "";
     private String validado = "";
 
@@ -62,20 +50,7 @@ public class AlumnoBean {
         this.id_usuario = id_usuario;
     }
 
-    /**
-     * @return the numexpediente
-     */
-    public String getNumexpediente() {
-        return numexpediente;
-    }
-
-    /**
-     * @param numexpediente the numexpediente to set
-     */
-    public void setNumexpediente(String numexpediente) {
-        this.numexpediente = numexpediente;
-    }
-
+   
     /**
      * @return the nombre
      */
@@ -105,104 +80,6 @@ public class AlumnoBean {
     }
 
     /**
-     * @return the ape2
-     */
-    public String getApe2() {
-        return ape2;
-    }
-
-    /**
-     * @param ape2 the ape2 to set
-     */
-    public void setApe2(String ape2) {
-        this.ape2 = ape2;
-    }
-
-    /**
-     * @return the sexo
-     */
-    public String getSexo() {
-        return sexo;
-    }
-
-    /**
-     * @param sexo the sexo to set
-     */
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    /**
-     * @return the domicilio
-     */
-    public String getDomicilio() {
-        return domicilio;
-    }
-
-    /**
-     * @param domicilio the domicilio to set
-     */
-    public void setDomicilio(String domicilio) {
-        this.domicilio = domicilio;
-    }
-
-    /**
-     * @return the codpostal
-     */
-    public String getCodpostal() {
-        return codpostal;
-    }
-
-    /**
-     * @param codpostal the codpostal to set
-     */
-    public void setCodpostal(String codpostal) {
-        this.codpostal = codpostal;
-    }
-
-    /**
-     * @return the poblacion
-     */
-    public String getPoblacion() {
-        return poblacion;
-    }
-
-    /**
-     * @param poblacion the poblacion to set
-     */
-    public void setPoblacion(String poblacion) {
-        this.poblacion = poblacion;
-    }
-
-    /**
-     * @return the provincia
-     */
-    public String getProvincia() {
-        return provincia;
-    }
-
-    /**
-     * @param provincia the provincia to set
-     */
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
-    }
-
-    /**
-     * @return the telefono
-     */
-    public String getTelefono() {
-        return telefono;
-    }
-
-    /**
-     * @param telefono the telefono to set
-     */
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    /**
      * @return the email
      */
     public String getEmail() {
@@ -228,19 +105,5 @@ public class AlumnoBean {
      */
     public void setValidado(String validado) {
         this.validado = validado;
-    }
-
-    /**
-     * @return the dni
-     */
-    public String getDni() {
-        return dni;
-    }
-
-    /**
-     * @param dni the dni to set
-     */
-    public void setDni(String dni) {
-        this.dni = dni;
     }
 }
